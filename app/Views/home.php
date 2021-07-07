@@ -16,6 +16,12 @@
         <?php endif; ?>
 	</div>
 </div>
+<div class="row mx-5 my-3">
+	<div class="col-md-7">
+		<a href="/insert" class="btn btn-primary">Add</a>
+		<a href="<?php echo base_url('/report')?>" class="btn btn-secondary">Print PDF</a>
+	</div>
+</div>
 <div class="container-sm mt-4">
 	<table class="table">
 		<thead>

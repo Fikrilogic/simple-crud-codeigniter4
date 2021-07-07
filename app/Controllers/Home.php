@@ -11,6 +11,22 @@ class Home extends BaseController
 		$this->student = new Student();
 	}
 
+	public function print() {
+		$dompdf =new \Dompdf\Dompdf();
+		$data = $this->student->findAll();
+
+		$s = [
+			"student" => $data
+		];
+
+		$dompdf->loadHtml(view('report_pdf', $s));
+		$dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+        $dompdf->stream('Laporan_Siswa');
+
+		return redirect()->to('/insert');
+	}
+
 	public function findStudent()
 	{	
 		
@@ -51,8 +67,7 @@ class Home extends BaseController
 			'phone' => $this->request->getVar('phone'),
 			'status' => $this->request->getVar('status'),
 		]);
-		// dd($this->request->getVar('status'));
-		session()->setFlashData('success','success insert a data');
+
 		return redirect()->to('/insert');
 	}
 	public function deleteStudent() {

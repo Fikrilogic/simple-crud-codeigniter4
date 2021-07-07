@@ -36,6 +36,7 @@ $routes->get('/', 'Home::findStudent');
 $routes->get('/(:num)', 'Home::findStudentById/$1');
 $routes->get('/insert', 'Home::insertStudent');
 $routes->post('/insert/save', 'Home::saveStudent');
+$routes->get('/report', 'Home::print');
 $routes->get('/delete', 'Home::deleteStudent');
 $routes->delete('/delete/(:num)', 'Home::deleteStudentById/$1');
 $routes->get('/update', 'Home::update');
